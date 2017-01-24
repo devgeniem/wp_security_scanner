@@ -1,7 +1,7 @@
 {
   "name": "devgeniem/wp_security_scanner",
   "type": "wordpress-plugin",
-  "license": "GPL2",
+  "license": "MIT",
   "description": "Runs security checks on WP plugins and posts the results to slack.",
   "homepage": "http://geniem.com",
   "authors": [
