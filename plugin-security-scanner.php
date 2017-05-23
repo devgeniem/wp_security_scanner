@@ -214,16 +214,18 @@ function plugin_security_scanner_do_this_daily() {
 			// Edited by JuhaniGeniem -->
 			#wp_mail( $admin_email, get_bloginfo() . ' ' . __( 'Plugin Security Scan', 'plugin-security-scanner' ) . ' ' . date_i18n( get_option( 'date_format' ) ), $mail_body );
 			
-			if (function_exists('curl_version') && defined('PLUGIN_SECURITY_SCANNER_SLACK_KEY')) {
-				$slack_message_expl = explode("\n\n", $mail_body);
-				$slack_message = get_site_url()."\n".$slack_message_expl[0];
-				$curl_message = array('payload' => json_encode(array('text' => $slack_message)));
-				$c = curl_init(PLUGIN_SECURITY_SCANNER_SLACK_KEY);
-				curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
-				curl_setopt($c, CURLOPT_POST, true);
-				curl_setopt($c, CURLOPT_POSTFIELDS, $curl_message);
-				curl_exec($c);
-				curl_close($c);
+			if (function_exists('curl_version')) {
+				if (defined('PLUGIN_SECURITY_SCANNER_SLACK_KEY')) {
+					$slack_message_expl = explode("\n\n", $mail_body);
+					$slack_message = get_site_url()."\n".$slack_message_expl[0];
+					$curl_message = array('payload' => json_encode(array('text' => $slack_message)));
+					$c = curl_init(PLUGIN_SECURITY_SCANNER_SLACK_KEY);
+					curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
+					curl_setopt($c, CURLOPT_POST, true);
+					curl_setopt($c, CURLOPT_POSTFIELDS, $curl_message);
+					curl_exec($c);
+					curl_close($c);
+				}
 			}
 			else {
 				$debug_to = 'support@geniem.com';
