@@ -1,22 +1,22 @@
 {
-  "name": "devgeniem/wp_security_scanner",
-  "type": "wordpress-plugin",
-  "license": "MIT",
-  "description": "Runs security checks on WP plugins and posts the results to slack.",
-  "homepage": "http://geniem.com",
-  "authors": [
-    {
-      "name": "Juhani Hakanen",
-      "email": "juhani.hakanen@geniem.com",
-      "homepage": "https://github.com/devgeniem",
-      "role": "owner"
+    "name": "devgeniem/wp_security_scanner",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "description": "Runs security checks on WP plugins and posts the results to slack.",
+    "homepage": "http://geniem.com",
+    "authors": [
+        {
+            "name": "Juhani Hakanen",
+            "email": "juhani.hakanen@geniem.com",
+            "homepage": "https://github.com/devgeniem",
+            "role": "owner"
+        }
+    ],
+    "keywords": [
+        "wordpress", "wp", "security"
+    ],
+    "require": {
+        "php": ">=5.6",
+        "composer/installers": "^1.0.12"
     }
-  ],
-  "keywords": [
-    "wordpress", "wp"
-  ],
-  "require": {
-    "php": ">=5.6",
-    "composer/installers": "v1.0.12"
-  }
 }
